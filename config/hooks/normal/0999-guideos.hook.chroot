@@ -5,13 +5,7 @@ sed -i 's|#greeter-hide-users=false|greeter-hide-users=false|g' /etc/lightdm/lig
 
 ### Install Flatpak packages and allow access to user configs for decent GTK and Qt theme support
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-flatpak install -y --noninteractive --system runtime/org.kde.KStyle.Kvantum/x86_64/5.15-22.08
-flatpak override --env=QT_STYLE_OVERRIDE=kvantum
-flatpak override --filesystem=xdg-config/Kvantum:ro
-flatpak install -y --noninteractive --system org.gtk.Gtk3theme.Numix
-flatpak override --filesystem=xdg-config/gtk-3.0:ro
-flatpak override --filesystem=xdg-config/gtk-4.0:ro
-flatpak override --filesystem=xdg-config/fontconfig:ro
+
 
 ### Don't automatically switch Bluetooth devices to HSP/HFP, use A2DP by default
 #sed -i 's|load-module module-bluetooth-policy|load-module module-bluetooth-policy auto_switch=false|g' /etc/pulse/default.pa
@@ -52,3 +46,22 @@ ln -s /etc/locale.conf /etc/default/locale
 
 ### https://www.reddit.com/r/debian/comments/14rd64o/hyperv_gen_2_debian_12_wluks_unable_to_boot/jtc9vv4/
 echo "hyperv_keyboard" >> /etc/initramfs-tools/modules
+
+
+
+sudo install -d -m 0755 /etc/apt/keyrings
+
+wget -q https://packages.mozilla.org/apt/repo-signing-key.gpg -O- | sudo tee /etc/apt/keyrings/packages.mozilla.org.asc > /dev/null
+
+
+gpg -n -q --import --import-options import-show /etc/apt/keyrings/packages.mozilla.org.asc | awk '/pub/{getline; gsub(/^ +| +$/,""); if($0 == "35BAA0B33E9EB396F59CA838C0BA5CE6DC6315A3") print "\nThe key fingerprint matches ("$0").\n"; else print "\nVerification failed: the fingerprint ("$0") does not match the expected one.\n"}'
+
+echo "deb [signed-by=/etc/apt/keyrings/packages.mozilla.org.asc] https://packages.mozilla.org/apt mozilla main" | sudo tee -a /etc/apt/sources.list.d/mozilla.list > /dev/null
+
+echo '
+Package: *
+Pin: origin packages.mozilla.org
+Pin-Priority: 1000
+' | sudo tee /etc/apt/preferences.d/mozilla
+
+sudo apt-get update && sudo apt-get install firefox
