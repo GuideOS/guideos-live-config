@@ -1,0 +1,5 @@
+---
+type: job
+interface: python
+name: nvidia-driver
+script: main.py

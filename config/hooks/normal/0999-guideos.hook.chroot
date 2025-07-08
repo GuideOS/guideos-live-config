@@ -30,7 +30,7 @@ sed -i 's|Debian Live|GuideOS|g' /usr/share/applications/install-debian.desktop
 glib-compile-schemas /usr/share/glib-2.0/schemas/
 
 ### Reconfigure LightDM to allow booting into read-only snapshots, many thanks to https://www.kali.org/docs/installation/btrfs/
-sudo sed -i 's/^#user-authority-in-system-dir=false/user-authority-in-system-dir=true/' /etc/lightdm/lightdm.conf
+sed -i 's/^#user-authority-in-system-dir=false/user-authority-in-system-dir=true/' /etc/lightdm/lightdm.conf
 
 ### Enable Pipewire and configure for low latency
 systemctl --global enable pipewire.socket
@@ -49,30 +49,30 @@ echo "hyperv_keyboard" >> /etc/initramfs-tools/modules
 
 
 ## Add Mozilla APT repository and signing key
-sudo install -d -m 0755 /etc/apt/keyrings
-wget -q https://packages.mozilla.org/apt/repo-signing-key.gpg -O- | sudo tee /etc/apt/keyrings/packages.mozilla.org.asc > /dev/null
+install -d -m 0755 /etc/apt/keyrings
+wget -q https://packages.mozilla.org/apt/repo-signing-key.gpg -O- | tee /etc/apt/keyrings/packages.mozilla.org.asc > /dev/null
 gpg -n -q --import --import-options import-show /etc/apt/keyrings/packages.mozilla.org.asc | awk '/pub/{getline; gsub(/^ +| +$/,""); if($0 == "35BAA0B33E9EB396F59CA838C0BA5CE6DC6315A3") print "\nThe key fingerprint matches ("$0").\n"; else print "\nVerification failed: the fingerprint ("$0") does not match the expected one.\n"}'
-echo "deb [signed-by=/etc/apt/keyrings/packages.mozilla.org.asc] https://packages.mozilla.org/apt mozilla main" | sudo tee -a /etc/apt/sources.list.d/mozilla.list > /dev/null
+echo "deb [signed-by=/etc/apt/keyrings/packages.mozilla.org.asc] https://packages.mozilla.org/apt mozilla main" | tee -a /etc/apt/sources.list.d/mozilla.list > /dev/null
 
 echo '
 Package: *
 Pin: origin packages.mozilla.org
 Pin-Priority: 1000
-' | sudo tee /etc/apt/preferences.d/mozilla
+' | tee /etc/apt/preferences.d/mozilla
 
-sudo apt-get update && sudo apt-get install firefox
+apt-get update && apt-get install firefox
 
 
 ### Add GuideOS repositories
-echo 'deb http://download.opensuse.org/repositories/home:/guideos:/trixie/Debian_Testing/ /' | sudo tee /etc/apt/sources.list.d/home:guideos:trixie.list
-curl -fsSL https://download.opensuse.org/repositories/home:guideos:trixie/Debian_Testing/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/home_guideos_trixie.gpg > /dev/null
+echo 'deb http://download.opensuse.org/repositories/home:/guideos:/trixie/Debian_Testing/ /' | tee /etc/apt/sources.list.d/home:guideos:trixie.list
+curl -fsSL https://download.opensuse.org/repositories/home:guideos:trixie/Debian_Testing/Release.key | gpg --dearmor | tee /etc/apt/trusted.gpg.d/home_guideos_trixie.gpg > /dev/null
 
-echo 'deb http://download.opensuse.org/repositories/home:/guideos:/universe/Debian_Testing/ /' | sudo tee /etc/apt/sources.list.d/home:guideos:universe.list
-curl -fsSL https://download.opensuse.org/repositories/home:guideos:universe/Debian_Testing/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/home_guideos_universe.gpg > /dev/null
+echo 'deb http://download.opensuse.org/repositories/home:/guideos:/universe/Debian_Testing/ /' | tee /etc/apt/sources.list.d/home:guideos:universe.list
+curl -fsSL https://download.opensuse.org/repositories/home:guideos:universe/Debian_Testing/Release.key | gpg --dearmor | tee /etc/apt/trusted.gpg.d/home_guideos_universe.gpg > /dev/null
 
-echo 'deb http://download.opensuse.org/repositories/home:/guideos:/cinnamon-trixie/Debian_Testing/ /' | sudo tee /etc/apt/sources.list.d/home:guideos:cinnamon-trixie.list
-curl -fsSL https://download.opensuse.org/repositories/home:guideos:cinnamon-trixie/Debian_Testing/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/home_guideos_cinnamon-trixie.gpg > /dev/null
+echo 'deb http://download.opensuse.org/repositories/home:/guideos:/cinnamon-trixie/Debian_Testing/ /' | tee /etc/apt/sources.list.d/home:guideos:cinnamon-trixie.list
+curl -fsSL https://download.opensuse.org/repositories/home:guideos:cinnamon-trixie/Debian_Testing/Release.key | gpg --dearmor | tee /etc/apt/trusted.gpg.d/home_guideos_cinnamon-trixie.gpg > /dev/null
 
-sudo apt update && sudo apt upgrade
+apt update
 
-sudo apt install guideos-version
+apt install guideos-version -y
