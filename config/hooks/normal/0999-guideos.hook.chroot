@@ -21,13 +21,15 @@ systemctl enable grub-btrfsd
 
 ### GRUB 2.06 menu generation doesn't run `os-prober` without this:
 printf "\nGRUB_DISABLE_OS_PROBER=false\n" >> /etc/default/grub
+sed -i 's/^\(GRUB_CMDLINE_LINUX_DEFAULT="[^"]*\)/\1 nomodeset/' /etc/default/grub
+
 
 ### Change "Install Debian" desktop file
-sed -i 's|Install Debian|Install GuideOS|g' /usr/share/applications/install-debian.desktop
-sed -i 's|Debian Live|GuideOS|g' /usr/share/applications/install-debian.desktop
+#sed -i 's|Install Debian|Install GuideOS|g' /usr/share/applications/install-debian.desktop
+#sed -i 's|Debian Live|GuideOS|g' /usr/share/applications/install-debian.desktop
 
 ### Disable Gnome Software automatic updates
-glib-compile-schemas /usr/share/glib-2.0/schemas/
+#glib-compile-schemas /usr/share/glib-2.0/schemas/
 
 ### Reconfigure LightDM to allow booting into read-only snapshots, many thanks to https://www.kali.org/docs/installation/btrfs/
 sed -i 's/^#user-authority-in-system-dir=false/user-authority-in-system-dir=true/' /etc/lightdm/lightdm.conf
@@ -40,12 +42,12 @@ ln -s /usr/share/doc/pipewire/examples/ld.so.conf.d/pipewire-jack-x86_64-linux-g
 ldconfig
 
 ### Only 1 locale config, Bookworm still uses /etc/default/locale -- https://groups.google.com/g/linux.debian.bugs.dist/c/6TOOs1L3z3E
-cp /etc/default/locale /etc/locale.conf
-rm /etc/default/locale
-ln -s /etc/locale.conf /etc/default/locale
+#cp /etc/default/locale /etc/locale.conf
+#rm /etc/default/locale
+#ln -s /etc/locale.conf /etc/default/locale
 
 ### https://www.reddit.com/r/debian/comments/14rd64o/hyperv_gen_2_debian_12_wluks_unable_to_boot/jtc9vv4/
-echo "hyperv_keyboard" >> /etc/initramfs-tools/modules
+#echo "hyperv_keyboard" >> /etc/initramfs-tools/modules
 
 
 ## Add Mozilla APT repository and signing key
