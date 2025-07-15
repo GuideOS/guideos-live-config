@@ -1,4 +1,0 @@
-[org.gnome.software]
-download-updates=false
-download-updates-notify=false
-external-appstream-system-wide=true

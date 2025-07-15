@@ -1,7 +1,7 @@
 #!/bin/sh
 
 echo
-echo "live-config hook: spirallinux"
+echo "live-config hook: guideos"
 
 # No passwords for live system user accounts
 _USERNAME="${_USERNAME:-${LIVE_USERNAME}}"

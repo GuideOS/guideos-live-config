@@ -19,8 +19,7 @@
 import QtQuick 2.0;
 import calamares.slideshow 1.0;
 
-Presentation
-{
+Presentation {
     id: presentation
 
     Timer {
@@ -33,19 +32,41 @@ Presentation
         Image {
             id: background1
             source: "slide1.png"
-            width: 467; height: 280
+            width: 467
+            height: 280
             fillMode: Image.PreserveAspectFit
             anchors.centerIn: parent
         }
         Text {
             anchors.horizontalCenter: background1.horizontalCenter
             anchors.top: background1.bottom
-            text: "Welcome to SpiralLinux.<br/>"+
-                  "The rest of the installation is automated and should complete in a few minutes."
+            text: "Willkommen bei GuideOS.<br/>" +
+                  "Die restliche Installation läuft automatisch und ist in wenigen Minuten abgeschlossen."
             wrapMode: Text.WordWrap
             width: 600
             horizontalAlignment: Text.Center
         }
     }
 
+    Slide {
+        Image {
+            id: background2
+            source: "slide2.png"
+            width: 467
+            height: 280
+            fillMode: Image.PreserveAspectFit
+            anchors.centerIn: parent
+        }
+        Text {
+            anchors.horizontalCenter: background2.horizontalCenter
+            anchors.top: background2.bottom
+            text: "Wusstest du schon?<br/>" +
+                  "GuideOS wurde mit Fokus auf Sicherheit und Einfachheit entwickelt –<br/>" +
+                  "ideal für Einsteiger und Profis."
+            wrapMode: Text.WordWrap
+            width: 600
+            horizontalAlignment: Text.Center
+        }
+    }
 }
+

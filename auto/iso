@@ -25,7 +25,7 @@ lb config noauto \
 --firmware-chroot true \
 --initramfs live-boot \
 --iso-publisher GuideOS \
---iso-volume GuideOS \
+--iso-volume GuideOS_Cinnamon \
 --linux-packages "linux-image linux-headers" \
 --bootappend-live "boot=live config quiet loglevel=0 splash threadirqs" \
 --memtest memtest86+x64 \
