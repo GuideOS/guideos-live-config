@@ -3,5 +3,5 @@
 Start Build:
 
 ```
-./guidos -i
+./guideos -i
 ```
