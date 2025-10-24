@@ -8,7 +8,7 @@ lb config noauto \
 --apt-indices false \
 --architectures amd64 \
 --archive-areas 'main contrib non-free non-free-firmware' \
---backports true \
+--backports false \
 --security true \
 --updates true \
 --source false \
@@ -25,7 +25,7 @@ lb config noauto \
 --initramfs live-boot \
 --linux-packages "linux-image linux-headers" \
 --bootappend-live "boot=live config quiet splash hostname=GuideOS" \
---memtest memtest86+x64 \
+--memtest memtest86 \
 --win32-loader false
 
 "${@}"
