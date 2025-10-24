@@ -295,12 +295,10 @@ faenza-icon-theme
 menulibre
 ffmpegthumbnailer
 
-cinnamon-l10n
-
-
 ### Gnome Software ###
 gnome-software
 gnome-software-plugin-flatpak
+gnome-software-plugin-deb
 packagekit
 packagekit-tools
 
@@ -350,4 +348,21 @@ slick-greeter
 fonts-noto-color-emoji
 fonts-font-awesome
 sudo
-
+ipewire-alsa
+libreoffice-l10n-de
+libreoffice-help-de
+libreoffice-style-breeze
+libreoffice-style-colibre
+libreoffice-style-elementary
+libreoffice-style-karasa-jaga
+libreoffice-style-sifr
+libreoffice-style-sukapura
+libreoffice-gtk3
+libreoffice-gtk4
+evolution-data-server
+evolution-data-server-common
+evolution-plugins
+gnome-online-accounts
+gnome-contacts
+gnome-calendar
+gnome-todo
