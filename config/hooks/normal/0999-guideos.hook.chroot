@@ -40,6 +40,8 @@ else
   echo "Die Datei $SESSION_FILE existiert nicht!"
 fi
 
+### Set GuideOS Plymouth theme as default
+plymouth-set-default-theme -R guideos-bootanimation
 
 ## Add Mozilla APT repository and signing key
 install -d -m 0755 /etc/apt/keyrings
@@ -68,5 +70,42 @@ curl -fsSL https://download.opensuse.org/repositories/home:guideos:cinnamon-trix
 
 apt update
 
-apt install guideos-version evilware-wallpapers guideos-adblocker-tool guideos-azure-ttk guideos-bigsur-icons guideos-browser-mail-backup guideos-firewall-spice guideos-shutdown-tool guideos-snap-installer guideos-stop-tool guideos-sys-mods guideos-wallpapers guideos-wex-icons mintstick primo-di-tutto raid-pasta-2k fonts-noto-color-emoji fonts-font-awesome guideos-whitesur-theme mint-themes yaru-theme-gtk bibata-cursor-theme guideos-data-vault guideos-energy-tool guideos-media-converter guideos-snapshot-manager -y
+apt install -y guideos-keyring \
+  bibata-cursor-theme \
+  calamares-settings-guideos \
+  debian-nvidia-installer \
+  evilware-wallpapers \
+  fonts-font-awesome \
+  fonts-noto-color-emoji \
+  guideos-adblocker-tool \
+  guideos-azure-ttk \
+  guideos-backgrounds-trixie \
+  guideos-browser-mail-backup \
+  guideos-common \
+  guideos-data-vault \
+  guideos-energy-tool \
+  guideos-firewall-spice \
+  guideos-media-converter \
+  guideos-shutdown-tool \
+  guideos-snap-installer \
+  guideos-snapshot-manager \
+  guideos-stop-tool \
+  guideos-sys-mods \
+  guideos-tray-spice \
+  guideos-version \
+  guideos-wex-icons \
+  guideos-whitesur-theme \
+  guideos-power-profiles-spice \
+  guideos-ticket-tool \
+  mint-themes \
+  guideos-update-notify \
+  mintstick \
+  guideos-updater \
+  guideos-whitesur-theme \
+  white-sur-icon-theme \
+  primo-di-tutto \
+  raid-pasta-2k \
+  webapp-manager \
+  yaru-theme-gtk
+
 apt upgrade -y
