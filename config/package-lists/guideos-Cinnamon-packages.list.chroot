@@ -28,7 +28,6 @@ broadcom-sta-dkms
 btrfs-progs
 cabextract
 calamares
-calamares-settings-debian
 systemd-timesyncd
 console-setup
 cpio
@@ -330,6 +329,7 @@ gnome-system-monitor
 gnome-terminal
 
 ### GuideOS ###
+#power-profiles-daemon
 vlc
 libreoffice
 wavpack
@@ -348,7 +348,7 @@ slick-greeter
 fonts-noto-color-emoji
 fonts-font-awesome
 sudo
-ipewire-alsa
+pipewire-alsa
 libreoffice-l10n-de
 libreoffice-help-de
 libreoffice-style-breeze
@@ -366,3 +366,42 @@ gnome-online-accounts
 gnome-contacts
 gnome-calendar
 gnome-todo
+
+### GuideOS Tools ###
+guideos-keyring
+bibata-cursor-theme
+calamares-settings-guideos
+debian-nvidia-installer
+evilware-wallpapers
+fonts-font-awesome
+fonts-noto-color-emoji
+guideos-adblocker-tool
+guideos-azure-ttk
+guideos-backgrounds-trixie
+guideos-browser-mail-backup
+guideos-common
+guideos-data-vault
+guideos-energy-tool
+guideos-firewall-spice
+guideos-media-converter
+guideos-shutdown-tool
+guideos-snap-installer
+guideos-snapshot-manager
+guideos-stop-tool
+guideos-sys-mods
+guideos-tray-spice
+guideos-version
+guideos-wex-icons
+guideos-whitesur-theme
+#guideos-power-profiles-spice
+guideos-ticket-tool
+mint-themes
+guideos-update-notify
+mintstick
+guideos-updater
+guideos-whitesur-theme
+white-sur-icon-theme
+primo-di-tutto
+raid-pasta-2k
+webapp-manager
+yaru-theme-gtk
