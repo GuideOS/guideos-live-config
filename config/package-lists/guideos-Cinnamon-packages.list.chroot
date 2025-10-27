@@ -31,7 +31,6 @@ calamares
 systemd-timesyncd
 console-setup
 cpio
-
 cryptsetup
 cryptsetup-initramfs
 cups
@@ -69,7 +68,6 @@ fonts-hack-ttf
 fonts-liberation
 fonts-roboto
 gdebi
-
 gnupg
 gnupg2
 grub-common
@@ -95,7 +93,6 @@ gvfs-backends
 libglib2.0-bin
 gvfs-fuse
 gzrt
-
 hdparm
 hfsprogs
 hostname
@@ -115,13 +112,11 @@ kpartx
 lame
 less
 libasound2-plugins
-
 libfile-mimeinfo-perl
 libgl1-mesa-dri
 libgphoto2-l10n
 libgpod4
 libgpod-common
-
 libmp3lame0
 libmtp-runtime
 libnotify-bin
@@ -136,7 +131,6 @@ live-config
 live-config-systemd
 live-tools
 lm-sensors
-locales
 lsof
 lvm2
 lzip
@@ -165,7 +159,6 @@ parted
 plymouth
 plymouth-themes
 plymouth-x11
-
 printer-driver-all
 printer-driver-all-enforce
 printer-driver-cups-pdf
@@ -258,7 +251,9 @@ grub-efi-ia32-signed:i386
 grub-efi-ia32-signed-template:i386
 alsa-ucm-conf
 zstd
-## Bookworm added:
+
+
+## Trixie added:
 dbus-user-session
 inotify-tools
 gawk
@@ -294,6 +289,7 @@ faenza-icon-theme
 menulibre
 ffmpegthumbnailer
 
+
 ### Gnome Software ###
 gnome-software
 gnome-software-plugin-flatpak
@@ -308,7 +304,6 @@ gnome-keyring
 gnome-nettool
 network-manager-gnome
 network-manager-openvpn-gnome
-
 ssh-askpass-gnome
 synaptic
 system-config-printer
@@ -324,9 +319,9 @@ gnome-multi-writer
 gnome-disk-utility
 gnome-firmware
 gnome-logs
-
 gnome-system-monitor
 gnome-terminal
+
 
 ### GuideOS ###
 #power-profiles-daemon
@@ -346,8 +341,6 @@ gufw
 redshift
 slick-greeter
 fonts-noto-color-emoji
-fonts-font-awesome
-sudo
 pipewire-alsa
 libreoffice-l10n-de
 libreoffice-help-de
@@ -399,7 +392,6 @@ mint-themes
 guideos-update-notify
 mintstick
 guideos-updater
-guideos-whitesur-theme
 white-sur-icon-theme
 primo-di-tutto
 raid-pasta-2k
