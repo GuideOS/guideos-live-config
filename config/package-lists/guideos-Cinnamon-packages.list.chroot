@@ -55,7 +55,6 @@ ethtool
 exfatprogs
 f2fs-tools
 fancontrol
-fasttrack-archive-keyring
 ffmpeg
 firmware-linux-free
 firmware-linux-nonfree
@@ -361,11 +360,12 @@ gnome-calendar
 gnome-todo
 
 ### GuideOS Tools ###
-guideos-keyring
+#guideos-keyring
 bibata-cursor-theme
 calamares-settings-guideos
 debian-nvidia-installer
 evilware-wallpapers
+firefox
 fonts-font-awesome
 fonts-noto-color-emoji
 guideos-adblocker-tool

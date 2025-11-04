@@ -1,0 +1,17 @@
+Types: deb
+Enabled: yes
+URIs: http://download.opensuse.org/repositories/home:/guideos:/cinnamon-trixie/Debian_13/
+Suites: /
+Components: 
+
+Types: deb
+Enabled: yes
+URIs: http://download.opensuse.org/repositories/home:/guideos:/trixie/Debian_13/
+Suites: /
+Components: 
+
+Types: deb
+Enabled: yes
+URIs: http://download.opensuse.org/repositories/home:/guideos:/universe/Debian_13/
+Suites: /
+Components:

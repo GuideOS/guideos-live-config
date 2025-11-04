@@ -1,0 +1,6 @@
+Types: deb
+Enabled: yes
+URIs: https://packages.mozilla.org/apt
+Suites: mozilla
+Components: main
+Architectures: amd64
