@@ -47,29 +47,25 @@ plymouth-set-default-theme -R guideos-bootanimation
 mkdir -p /etc/xdg
 cat > /etc/xdg/mimeapps.list << 'EOF'
 [Default Applications]
-# Internet
+# Internet (based on Cinnamon preferred_app_defs)
 x-scheme-handler/http=firefox.desktop
 x-scheme-handler/https=firefox.desktop
 x-scheme-handler/mailto=thunderbird.desktop
 
-# Multimedia  
-audio/mpeg=rhythmbox.desktop
-audio/x-vorbis+ogg=rhythmbox.desktop
-audio/ogg=rhythmbox.desktop
-video/mp4=totem.desktop
-video/x-ogm+ogg=totem.desktop
-image/jpeg=eog.desktop
-image/png=eog.desktop
+# Multimedia (based on Cinnamon preferred_app_defs)
+audio/x-vorbis+ogg=vlc.desktop
+video/x-ogm+ogg=vlc.desktop
+image/jpeg=org.gnome.eog.desktop
 
-# Office
-application/pdf=evince.desktop
+# Office (based on Cinnamon preferred_app_defs)
 application/msword=libreoffice-writer.desktop
 application/msexcel=libreoffice-calc.desktop
-text/plain=gedit.desktop
-text/x-python=gedit.desktop
+application/pdf=org.gnome.Evince.desktop
+text/x-python=org.xfce.mousepad.desktop
 
-# System
+# System (based on Cinnamon preferred_app_defs)
 inode/directory=nemo.desktop
+text/plain=org.xfce.mousepad.desktop
 EOF
 
 ### Also create skeleton for new users
