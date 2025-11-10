@@ -43,4 +43,37 @@ fi
 ### Set GuideOS Plymouth theme as default
 plymouth-set-default-theme -R guideos-bootanimation
 
+### Set default applications system-wide
+mkdir -p /etc/xdg
+cat > /etc/xdg/mimeapps.list << 'EOF'
+[Default Applications]
+# Internet
+x-scheme-handler/http=firefox.desktop
+x-scheme-handler/https=firefox.desktop
+x-scheme-handler/mailto=thunderbird.desktop
+
+# Multimedia  
+audio/mpeg=rhythmbox.desktop
+audio/x-vorbis+ogg=rhythmbox.desktop
+audio/ogg=rhythmbox.desktop
+video/mp4=totem.desktop
+video/x-ogm+ogg=totem.desktop
+image/jpeg=eog.desktop
+image/png=eog.desktop
+
+# Office
+application/pdf=evince.desktop
+application/msword=libreoffice-writer.desktop
+application/msexcel=libreoffice-calc.desktop
+text/plain=gedit.desktop
+text/x-python=gedit.desktop
+
+# System
+inode/directory=nemo.desktop
+EOF
+
+### Also create skeleton for new users
+mkdir -p /etc/skel/.config
+cp /etc/xdg/mimeapps.list /etc/skel/.config/mimeapps.list
+
 
