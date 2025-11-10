@@ -7,8 +7,7 @@ sed -i 's|#greeter-hide-users=false|greeter-hide-users=false|g' /etc/lightdm/lig
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
 ### Install https://github.com/Antynea/grub-btrfs
-cd /usr/share/grub-btrfs
-make install
+(cd /usr/share/grub-btrfs && make install)
 rm -R /usr/share/grub-btrfs
 systemctl enable grub-btrfsd
 
