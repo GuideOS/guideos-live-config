@@ -1,0 +1,46 @@
+#!/bin/bash
+
+# Fix encryption boot issues after installation
+# This script should be called by Calamares after installation
+
+CHROOT=$(mount | grep proc | grep calamares | awk '{print $3}' | sed -e "s#/proc##g")
+
+if [ -z "$CHROOT" ]; then
+    echo "Error: Could not determine chroot path"
+    exit 1
+fi
+
+echo "Fixing encryption boot configuration..."
+
+# Check if we have an encrypted root
+ROOT_DEVICE=$(mount | grep "$CHROOT " | awk '{print $1}')
+if [[ "$ROOT_DEVICE" == /dev/mapper/luks* ]] || [[ "$ROOT_DEVICE" == /dev/mapper/*crypt* ]]; then
+    echo "Detected encrypted root: $ROOT_DEVICE"
+    
+    # Ensure cryptsetup is properly configured
+    if [ ! -f "$CHROOT/etc/initramfs-tools/conf.d/cryptsetup" ]; then
+        mkdir -p "$CHROOT/etc/initramfs-tools/conf.d"
+        cat > "$CHROOT/etc/initramfs-tools/conf.d/cryptsetup" << EOF
+# Cryptsetup configuration
+CRYPTSETUP=yes
+export CRYPTSETUP
+UMASK=0077
+export UMASK
+EOF
+    fi
+    
+    # Ensure secure permissions
+    if [ ! -f "$CHROOT/etc/initramfs-tools/conf.d/initramfs-permissions" ]; then
+        echo "UMASK=0077" > "$CHROOT/etc/initramfs-tools/conf.d/initramfs-permissions"
+    fi
+    
+    # Update initramfs after installation
+    chroot "$CHROOT" update-initramfs -u -k all
+    
+    # Update grub configuration
+    chroot "$CHROOT" update-grub
+    
+    echo "Encryption boot configuration fixed"
+else
+    echo "No encrypted root filesystem detected"
+fi
