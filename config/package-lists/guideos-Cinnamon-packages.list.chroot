@@ -360,7 +360,7 @@ gnome-calendar
 gnome-todo
 
 ### GuideOS Tools ###
-#guideos-keyring
+guideos-keyring
 bibata-cursor-theme
 calamares-settings-guideos
 debian-nvidia-installer

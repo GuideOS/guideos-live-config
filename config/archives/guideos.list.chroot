@@ -1,3 +1,5 @@
-deb http://download.opensuse.org/repositories/home:/guideos:/cinnamon-trixie/Debian_13/ /
-deb http://download.opensuse.org/repositories/home:/guideos:/trixie/Debian_13/ /
-deb http://download.opensuse.org/repositories/home:/guideos:/universe/Debian_13/ /
+Types: deb
+URIs: https://guideos.eu/repo
+Suites: guideos
+Components: uno universe
+Signed-By: /etc/apt/trusted.gpg.d/guideos.asc
