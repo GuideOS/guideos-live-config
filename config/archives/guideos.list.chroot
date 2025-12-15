@@ -1,5 +1,1 @@
-Types: deb
-URIs: https://guideos.eu/repo
-Suites: guideos
-Components: uno universe
-Signed-By: /etc/apt/trusted.gpg.d/guideos.asc
+deb https://guideos.eu/repo guideos uno universe

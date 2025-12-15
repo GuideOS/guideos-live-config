@@ -8,5 +8,6 @@ sudo apt install make git sudo live-build
 Start Build:
 
 ```
-./guideos -i
+cd ~/guideos-live-config
+sudo ./guideos -i
 ```
